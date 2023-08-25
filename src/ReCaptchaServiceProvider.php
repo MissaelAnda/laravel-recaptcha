@@ -10,7 +10,7 @@ class ReCaptchaServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/whatsapp.php', 'whatsapp');
+        $this->mergeConfigFrom(__DIR__ . '/../config/recaptcha.php', 'recaptcha');
 
         $this->app->singleton('recaptcha', ReCaptcha::class);
     }
@@ -32,7 +32,7 @@ class ReCaptchaServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/whatsapp.php' => $this->app->configPath('whatsapp.php'),
+                __DIR__ . '/../config/recaptcha.php' => $this->app->configPath('recaptcha.php'),
             ], 'config');
         }
     }
