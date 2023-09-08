@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @method static bool validate(string $recaptcha)
  * @method static bool invoke()
- * @method static void setEnabled(bool $enabled = true)
+ * @method static \MissaelAnda\ReCaptcha\ReCaptcha setEnabled(bool $enabled = true)
+ * @method static bool enabled()
  */
 class ReCaptcha extends Facade
 {

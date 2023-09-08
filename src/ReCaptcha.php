@@ -22,9 +22,16 @@ class ReCaptcha
         }
     }
 
-    public function setEnabled(bool $enabled = true)
+    public function setEnabled(bool $enabled = true): static
     {
         $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    public function enabled(): bool
+    {
+        return $this->enabled;
     }
 
     public function validate(?string $recaptcha): bool
@@ -38,7 +45,7 @@ class ReCaptcha
         }
 
         try {
-            $response = Http::asMultipart()->timeout(config('recaptcha.timeout', 10))->post(self::URL, [
+            $response = Http::asMultipart()->timeout(config('recaptcha.timeout'))->post(self::URL, [
                 'secret' => $this->key,
                 'response' => $recaptcha,
                 'remoteip' => request()->ip(),

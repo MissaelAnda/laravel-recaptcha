@@ -5,5 +5,5 @@ return [
 
     'key' => env('RECAPTCHA_KEY'),
 
-    'timeout' => env('RECAPTCHA_TIMEOUT'),
+    'timeout' => env('RECAPTCHA_TIMEOUT', 10),
 ];
